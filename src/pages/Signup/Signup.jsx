@@ -1,5 +1,5 @@
 import React from "react";
-import signupImg from "./signup.jpg";
+import signupImg from "./signup2.jpg";
 
 const Signup = () => {
     return (
@@ -11,7 +11,7 @@ const Signup = () => {
                 width: '100%', 
                 height: '100vh',
             }} className="flex items-center justify-center">
-                <div className="bg-opacity-10 bg-gradient-to-r from-gray-900 to-black p-8 rounded-lg shadow-md h-[100vh] max-w-full w-full">
+                <div className="bg-gradient-to-r from-black  to-transparent p-8 rounded-lg shadow-md h-[100vh] max-w-full w-full">
                     
                 </div>
             </div>
