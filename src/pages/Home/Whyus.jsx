@@ -16,7 +16,7 @@ const Whyus = () => {
         <div className="mt-24 mb-32 min-screen:flex min-screens:flex-col flex-row max-w-[1100px] mx-auto">
             <div className="flex">
                 <img data-aos="fade-up" data-aos-delay="200" src={map} alt="" className="h-[400px]" />
-                <img data-aos="fade-up" data-aos-delay="500" src={car} alt="" className="h-[220px] relative min:screens:right-[320px] right-[340px] top-[150px]" />
+                <img data-aos="fade-up" data-aos-delay="500" src={car} alt="" className="h-[220px] relative min:screens:right-[320px] right-[365px] top-[150px]" />
             </div>
             <div className="max-w-[600px] mx-auto text-center mt-8">
                 <h2 className="text-3xl font-semibold mb-4" data-aos="fade-up" data-aos-delay="700">Pourquoi LocoAuto?</h2>
