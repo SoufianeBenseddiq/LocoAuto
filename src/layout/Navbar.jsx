@@ -21,7 +21,7 @@ const Navbar =()=>{
     return(
         <>
             {/*large devices*/}
-            <div className="flex flex-row justify-between items-center h-[50px] mt-4 max-w-[1100px] mx-auto ">
+            <div className="flex flex-row justify-between items-center h-[50px] mt-4 max-w-[1100px] mx-auto md:px-4 ">
                 <h1 className="text-3xl font-semibold hover:cursor-pointer md:ml-0 ml-4 " >LocoAuto</h1>
                 <div className="hidden min-screen:flex flex-row justify-between min-screen:w-[50%]">
                     <nav className="flex flex-row justify-between w-[60%] font-semibold items-center">
