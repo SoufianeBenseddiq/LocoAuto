@@ -1,10 +1,12 @@
 import React,{useEffect, useState} from "react";
-// import {Link} from 'react-router-dom'
+import { useCookies  } from 'react-cookie';
 import { AiOutlineMenu,AiOutlineClose } from "react-icons/ai";
 import { Link } from "react-router-dom";
 
 const Navbar =()=>{
     const [showNav,setShowNav]=useState(true)
+    const [cookies, setCookie,removeCookie] = useCookies();
+    const [session,setSession]=useState(false)
     const handleNav =()=>{
         setShowNav(!showNav)
     }
@@ -17,7 +19,21 @@ const Navbar =()=>{
         }
     },[showNav])
     
+    useEffect(() => {
+        // alert(cookies.token);
+        if(typeof cookies.token !== 'undefined'){
+            setSession(false);
+        }
+        else{
+            setSession(true);
+        }
+    }, [cookies.token]);
 
+    const handleLogOut=()=>{
+        removeCookie("token")
+        setCookie(false)
+        window.location.reload()
+    }
     return(
         <>
             {/*large devices*/}
@@ -30,18 +46,25 @@ const Navbar =()=>{
                         <div className="hover:font-bold hover:cursor-pointer hover:text-[#ff0366]" >Contact</div>
                         <div className="hover:font-bold hover:cursor-pointer hover:text-[#ff0366]" >Aide</div>
                     </nav>
-                        <Link to="/signup" >
-                            <button className="text-white bg-black rounded-3xl w-[180px] h-[40px] font-semibold  hover:bg-[#ff0366]  ease-in-out duration-[450ms]">
-                            S'inscrire
+                        {session?
+                            <Link to="/signup" >
+                                <button className="text-white bg-black rounded-3xl w-[180px] h-[40px] font-semibold  hover:bg-[#ff0366]  ease-in-out duration-[450ms]">
+                                S'inscrire
+                                </button>
+                            </Link>
+                            :
+                            <button onClick={handleLogOut} className="text-white bg-black rounded-3xl w-[180px] h-[40px] font-semibold  hover:bg-[#ff0366]  ease-in-out duration-[450ms]">
+                            Se deconnecter
                             </button>
-                        </Link>
+                        }
+                        
                 </div>
                 <div onClick={handleNav} className={showNav?'flex min-screen:hidden hover:cursor-pointer mr-4':'hidden'}>
                     <AiOutlineMenu size={25} className='text-black'/>
                 </div>
             </div>
             {/**phone screens */}
-            <div className={!showNav?'px-4 fixed left-0 flex flex-col top-0 py-8 justify-between w-[100%] h-[100%] bg-white items-center text-[#15162f] z-50 ease-in-out duration-[650ms]':'fixed py-8 flex flex-col left-[-100%] w-[100%] ease-in-out duration-[650ms] z-50 pb-24 h-screen top-0 justify-between'}>
+            <div className={!showNav?'px-4 fixed left-0 flex flex-col top-0 min-screen:hidden py-8 justify-between w-[100%] h-[100%] bg-white items-center text-[#15162f] z-50 ease-in-out duration-[650ms]':'fixed py-8 flex flex-col left-[-100%] w-[100%] ease-in-out duration-[650ms] z-50 pb-24 h-screen top-0 justify-between'}>
                 <div className='flex justify-between items-center w-[100%]'>
                     <h1 className="text-3xl font-semibold hover:cursor-pointer" >LocoAuto</h1>
                     <AiOutlineClose size={25} onClick={handleNav} className='text-black hover:cursor-pointer'/>
