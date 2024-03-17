@@ -5,7 +5,7 @@ import { useNavigate, Link } from 'react-router-dom';
 
 export default function Login() {
     const navigate = useNavigate(); // Corrected: useNavigate should be called as a function
-    const [token,setToken]=useState("")
+    // const [token,setToken]=useState("")
     const [data, setData] = useState({
         email:"",
         password:""
