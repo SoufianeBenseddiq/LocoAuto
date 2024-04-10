@@ -38,13 +38,13 @@ const Navbar =()=>{
         <>
             {/*large devices*/}
             <div className="flex flex-row justify-between items-center h-[50px] mt-4 max-w-[1100px] mx-auto md:px-4 ">
-                <h1 className="text-3xl font-semibold hover:cursor-pointer md:ml-0 ml-4 " >LocoAuto</h1>
+            <Link to="/" ><h1 className="text-3xl font-semibold hover:cursor-pointer md:ml-0 ml-4 " >LocoAuto</h1></Link>
                 <div className="hidden min-screen:flex flex-row justify-between min-screen:w-[50%]">
                     <nav className="flex flex-row justify-between w-[60%] font-semibold items-center">
-                        <div className="hover:font-bold hover:cursor-pointer hover:text-[#ff0366]" >Accueil</div>
-                        <div className="hover:font-bold hover:cursor-pointer hover:text-[#ff0366]" >Voitures</div>
-                        <div className="hover:font-bold hover:cursor-pointer hover:text-[#ff0366]" >Contact</div>
-                        <div className="hover:font-bold hover:cursor-pointer hover:text-[#ff0366]" >Aide</div>
+                        <Link to="/" ><div className="hover:font-bold hover:cursor-pointer hover:text-[#ff0366]" >Accueil</div></Link>
+                        <Link to="/filter" ><div className="hover:font-bold hover:cursor-pointer hover:text-[#ff0366]" >Voitures</div></Link>
+                        <Link to="/contact" ><div className="hover:font-bold hover:cursor-pointer hover:text-[#ff0366]" >Contact</div></Link>
+                        <Link to="/aide" ><div className="hover:font-bold hover:cursor-pointer hover:text-[#ff0366]" >Aide</div></Link>
                     </nav>
                         {session?
                             <Link to="/signup" >
